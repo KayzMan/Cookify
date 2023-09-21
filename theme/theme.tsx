@@ -8,6 +8,8 @@ interface sizesType {
   touchableOpacity_medium?: number;
   touchableOpacity_low?: number;
 
+  skeletonTime: number;
+
   fontWeight_bold?:
     | "700"
     | "400"
@@ -59,6 +61,8 @@ export const theme = {
     touchableOpacity_high: 0.8,
     touchableOpacity_medium: 0.5,
     touchableOpacity_low: 0.2,
+
+    skeletonTime: 2000,
 
     fontWeight_bold: "700",
     fontWeight_medium: "400",

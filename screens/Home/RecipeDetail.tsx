@@ -2,6 +2,7 @@ import { View, ScrollView, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Avatar } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
 
 // 👇 theme
 import { theme } from "../../theme/theme";
@@ -17,6 +18,7 @@ import { common_icon_props } from "../../utilities/props.utility";
 
 export default function RecipeDetail() {
   const [liked, setLiked] = useState<boolean>(false);
+  const navigation = useNavigation();
 
   return (
     <>
@@ -49,11 +51,20 @@ export default function RecipeDetail() {
         {/* 👇 top */}
         <View style={recipeDetailStyles.top}>
           {/* 👇 left icon */}
-          <MaterialCommunityIcons
-            {...common_icon_props}
-            name="chevron-left"
-            color={theme.colors.black}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              if (navigation.canGoBack()) {
+                navigation.goBack();
+              }
+            }}
+            activeOpacity={theme.sizes.touchableOpacity_medium}
+          >
+            <MaterialCommunityIcons
+              {...common_icon_props}
+              name="chevron-left"
+              color={theme.colors.black}
+            />
+          </TouchableOpacity>
 
           {/* 👇 heart icon */}
           <TouchableOpacity
