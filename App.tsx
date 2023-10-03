@@ -1,4 +1,4 @@
-import { LogBox, SafeAreaView, StatusBar, Text } from "react-native";
+import { LogBox, SafeAreaView, StatusBar } from "react-native";
 import {
   Provider as PaperProvider,
   useTheme,
